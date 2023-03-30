@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: ${db.local.url}
+    username: ${db.local.username}
+    password: ${db.local.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    show_sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+
+springdoc:
+  packages-to-scan : practice.kotlin_practice
+  swagger-ui :
+    path : /api
+  api-docs :
+    path : /api-docs/json
+    groups :
+      enabled : true
+  cache :
+    disabled : true
+  default-consumes-media-type : application/json;charset=UTF-8
+  default-produces-media-type : application/json;charset=UTF-8
